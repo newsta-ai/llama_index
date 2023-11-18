@@ -94,7 +94,7 @@ class BaseIndex(Generic[IS], ABC):
 
         with service_context.callback_manager.as_trace("index_construction"):
             for doc in documents:
-                docstore.set_document_hash(doc.doc_id, doc.hash)
+                docstore.set_document_hash(doc.id_, doc.hash)
 
             nodes = run_transformations(
                 documents,  # type: ignore
